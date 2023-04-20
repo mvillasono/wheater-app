@@ -11,7 +11,7 @@ import { FaWater, FaWind } from "react-icons/fa";
 import useClima from "../hooks/useClima";
 
 const NotFound = () => {
-  const [image, setImage] = useState("/public/images/404.png");
+  const [image, setImage] = useState("/images/404.png");
 
   return (
     <Stack

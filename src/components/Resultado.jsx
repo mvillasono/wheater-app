@@ -19,27 +19,27 @@ const Resultado = () => {
   useEffect(() => {
     switch (resultado?.weather[0].main) {
       case "Clear":
-        setImage("/public/images/clear.png");
+        setImage("/images/clear.png");
         break;
 
       case "Rain":
-        setImage("/public/images/rain.png");
+        setImage("/images/rain.png");
         break;
 
       case "Snow":
-        setImage("/public/images/snow.png");
+        setImage("/images/snow.png");
         break;
 
       case "Clouds":
-        setImage("/public/images/cloud.png");
+        setImage("/images/cloud.png");
         break;
 
       case "Haze":
-        setImage("/public/images/mist.png");
+        setImage("/images/mist.png");
         break;
 
       default:
-        setImage("/public/images/404.png");
+        setImage("/images/404.png");
         break;
     }
   }, [resultado]);
