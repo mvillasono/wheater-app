@@ -8,7 +8,7 @@ Aplicación web creada para consultar el clima en regiones de Perú.
 * Chakra UI (https://chakra-ui.com/)
 * Api Wheater (https://home.openweathermap.org/api_keys)
 * Axios (https://axios-http.com/docs/intro)
-* Design reference (https://youtu.be/iILFBGm_I9M)
+* Design reference AsmrProg (https://youtu.be/iILFBGm_I9M)
 
 # Screenshot
 
