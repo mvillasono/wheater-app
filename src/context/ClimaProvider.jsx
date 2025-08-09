@@ -1,5 +1,8 @@
 import { useState, createContext } from "react";
-import axios from "axios";
+import {
+  getCoordenadas,
+  getClimaPorCoordenadas,
+} from "../services/climaService";
 const ClimaContext = createContext();
 const ClimaProvider = ({ children }) => {
   const [busqueda, setBusqueda] = useState({
@@ -16,15 +19,21 @@ const ClimaProvider = ({ children }) => {
 
   const [resultado, setResultado] = useState({});
 
+  // Permitir limpiar el resultado desde el formulario
+  if (typeof window !== "undefined") {
+    window.removeEventListener("limpiar-clima", () => setResultado({}));
+    window.addEventListener("limpiar-clima", () => setResultado({}));
+  }
+
   const consultarClima = async (datos) => {
     try {
       const { ciudad, pais } = datos;
-      const appId = import.meta.env.VITE_API_KEY;
-      const url = `https://api.openweathermap.org/geo/1.0/direct?q=${ciudad},PE&limit=1&appid=${appId}`;
-      const { data } = await axios(url);
-      const { lat, lon } = data[0];
-      const urlClima = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${appId}`;
-      const { data: clima } = await axios(urlClima);
+      const coords = await getCoordenadas(ciudad, pais);
+      if (!coords) {
+        setResultado(null);
+        return;
+      }
+      const clima = await getClimaPorCoordenadas(coords.lat, coords.lon);
       setResultado(clima);
     } catch (error) {
       setResultado(null);

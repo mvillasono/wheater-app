@@ -7,7 +7,7 @@ import { ClimaProvider } from "./context/ClimaProvider";
 import theme from "./theme";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ChakraProvider>
+  <ChakraProvider theme={theme}>
     <ColorModeScript initialColorMode={theme.config.initialColorMode} />
     <ClimaProvider>
       <App />

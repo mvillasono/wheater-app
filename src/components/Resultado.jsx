@@ -53,7 +53,11 @@ const Resultado = () => {
       alignItems={"center"}
     >
       <VStack maxW={"sm"} textAlign={"center"} className="image">
-        <Image src={image} alt="wheater" boxSize="200px" />
+        <Image
+          src={image}
+          alt={resultado?.weather ? resultado.weather[0].description : "Clima"}
+          boxSize="200px"
+        />
 
         <Box display={"block"} justifyContent={"center"} alignItems={"center"}>
           <Text
@@ -65,12 +69,21 @@ const Resultado = () => {
           <Text as={"span"} className="temperature-span">
             &#x2103;
           </Text>
-          <Text
-            className="description"
-            color={useColorModeValue("black", "white")}
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            gap={2}
+            mb={1}
           >
-            {name}
-          </Text>
+            <Text
+              className="description"
+              color={useColorModeValue("black", "white")}
+              mb={0}
+            >
+              {name}
+            </Text>
+          </Box>
           <Text
             className="description-2"
             color={useColorModeValue("black", "white")}
@@ -80,7 +93,7 @@ const Resultado = () => {
         </Box>
         <Box className="weather-details">
           <Box className="humidity">
-            <FaWind
+            <FaWater
               className="icon"
               color={useColorModeValue("black", "white")}
             />
@@ -99,7 +112,7 @@ const Resultado = () => {
             </Text>
           </Box>
           <Box className="wind">
-            <FaWater
+            <FaWind
               className="icon"
               color={useColorModeValue("black", "white")}
             />

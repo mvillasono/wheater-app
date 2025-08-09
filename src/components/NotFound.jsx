@@ -22,7 +22,7 @@ const NotFound = () => {
       alignItems={"center"}
     >
       <VStack maxW={"sm"} textAlign={"center"} className="image">
-        <Image src={image} alt="wheater" boxSize="300px" />
+        <Image src={image} alt="No se encontró la región" boxSize="300px" />
 
         <Box display={"block"} justifyContent={"center"} alignItems={"center"}>
           <Text

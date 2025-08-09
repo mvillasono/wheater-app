@@ -40,7 +40,7 @@ function App() {
                 zIndex: -1,
               }}
             >
-              🥵 Wheater
+              🥵 Weather
             </Text>
             <br />{" "}
             <Text color={"blue.400"} as={"span"}>
