@@ -9,6 +9,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import React, { useState, useEffect, useRef } from "react";
+import confetti from "canvas-confetti";
 import { CloseIcon } from "@chakra-ui/icons";
 import useClima from "../hooks/useClima";
 import { SearchIcon } from "@chakra-ui/icons";
@@ -136,8 +137,12 @@ const Formulario = () => {
     setIsLoading(true);
     try {
       await consultarClima(datos);
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
       setShowSuggestions(false);
-      // ...
     } catch (error) {
       setAlerta("No se pudo obtener el clima. Intenta nuevamente.");
       // ...
